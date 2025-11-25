@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [reEngenering]" guice-stage="DEVELOPMENT">
+  <listeners>
+    <listener class-name="com.varsity.application.utils.ExtentReportManager"/>
+  </listeners>
+  <test thread-count="5" name="reEngeneeringsuiteTest(failed)">
+    <parameter name="os" value="Windows 11"/>
+    <classes>
+      <class name="com.varsity.application.tests.TC_0001LoginPageTest">
+        <methods>
+          <include name="loginPageTest"/>
+          <include name="setup"/>
+        </methods>
+      </class> <!-- com.varsity.application.tests.TC_0001LoginPageTest -->
+    </classes>
+  </test> <!-- reEngeneeringsuiteTest(failed) -->
+</suite> <!-- Failed suite [reEngenering] -->

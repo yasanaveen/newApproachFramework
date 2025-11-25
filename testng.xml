@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+
+<suite name="reEngenering">
+
+	<listeners>
+		<listener class-name="com.varsity.application.utils.ExtentReportManager"/>
+	</listeners>
+
+	<test thread-count="5" name="reEngeneeringsuiteTest">
+		<parameter name="os" value="Windows 11"/>
+		<classes>
+			<class name="com.varsity.application.tests.TC_0001LoginPageTest" />
+			<!--<class name="reEngeneeringTestCases.TC_0002ApplicationModuleTestClass"/>-->
+			<class
+				name="com.varsity.application.tests.ValidateRequiredFieldErrorsTest" />
+		</classes>
+	</test>
+</suite>
