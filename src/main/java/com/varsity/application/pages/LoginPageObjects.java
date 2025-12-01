@@ -17,6 +17,8 @@ public class LoginPageObjects {
 
 	private WebDriver driver;
 	private WaitUtill waitUtill;
+	
+	
 
 	public LoginPageObjects(WebDriver driver) {
 		this.driver = driver;
@@ -28,13 +30,13 @@ public class LoginPageObjects {
 	WebElement emailInputField;
 	@FindBy(id = "password")
 	WebElement passwordInputField;
-	@FindBy(className = "LoginButton_initial__gB02f")
+	@FindBy(xpath = "//*[text()='Login']")
 	WebElement loginBtn;
 
-	@FindBy(xpath = "//*[@class='UserInfoComponent_userinfo__RsXGa']")
+	@FindBy(xpath = "//*[contains(@class,'_userinfo__RsXGa')]")
 	WebElement userInfo;
 
-	@FindBy(xpath = "(//*[@class='UserInfoComponent_dropdown_item__X8mt2'])[3]")
+	@FindBy(xpath = "(//*[contains(@class,'_item__X8mt2')])[3]")
 	WebElement logoutBtn;
 
 	public void urlValidation() throws IOException {

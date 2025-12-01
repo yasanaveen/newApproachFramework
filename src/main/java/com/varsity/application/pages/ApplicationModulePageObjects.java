@@ -2,11 +2,13 @@ package com.varsity.application.pages;
 
 import java.util.List;
 
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
+
 
 import com.varsity.application.utils.WaitUtill;
 
@@ -14,6 +16,8 @@ public class ApplicationModulePageObjects {
 
 	private WebDriver driver;
 	private WaitUtill waitUtill;
+	
+	
 
 	public ApplicationModulePageObjects(WebDriver driver) {
 		this.driver = driver;
@@ -25,7 +29,7 @@ public class ApplicationModulePageObjects {
 	@FindBy(xpath = "(//*[@class='SideBar_sidebar__F4ct3']//li)[3]")
 	List<WebElement> sideBarOptions;
 
-	@FindBy(xpath = "//*[@class='ApplicationNavLinks_all_nav_tabs__+HYGr']//li[2]")
+	@FindBy(xpath = "//*[text()='Distribute']")
 	WebElement distributionTab;
 
 	@FindBy(xpath = "(//*[@type='button'])[2]")
@@ -54,6 +58,9 @@ public class ApplicationModulePageObjects {
 
 	@FindBy(xpath = "(//*[@type='button'])[5]")
 	WebElement issuedToDropdown;
+	
+	@FindBy(id = "availableAppNoFrom")
+	WebElement avilableApplicationFrom;
 
 	@FindBy(xpath = "//*[text()='Shiva Dev']")
 	WebElement selectIssuedTo;
@@ -64,10 +71,10 @@ public class ApplicationModulePageObjects {
 	@FindBy(id = "range")
 	WebElement rangeField;
 	
-	@FindBy(xpath = "//*[@value='2025-11-25']")
+	@FindBy(id = "issueDate")
 	WebElement dateField;
 
-	@FindBy(xpath = "//*[@id='mobileNumber']")
+	@FindBy(id = "mobileNumber")
 	WebElement mobileNumberField;
 
 	public @FindBy(xpath = "//*[text()='Insert']")
@@ -84,7 +91,7 @@ public class ApplicationModulePageObjects {
 				return;
 			}
 		}
-
+		
 	}
 	
 	public String getPageHTML() {
@@ -94,6 +101,7 @@ public class ApplicationModulePageObjects {
 
 	public void clickDistributionTab() {
 		waitUtill.waitForVisibility(distributionTab).click();
+		
 	}
 
 	public void citySelection(String cityName) throws InterruptedException {
@@ -101,6 +109,7 @@ public class ApplicationModulePageObjects {
 		waitUtill.waitForVisibility(dpdwnSearchinput).sendKeys(cityName);
 		Thread.sleep(2000);
 		waitUtill.waitForVisibility(selectCity).click();
+		
 	}
 
 	public void zoneSelection(String zoneName) throws InterruptedException {
@@ -108,42 +117,56 @@ public class ApplicationModulePageObjects {
 		waitUtill.waitForVisibility(zoneDpdwnSearchinput).sendKeys(zoneName);
 		Thread.sleep(1000);
 		waitUtill.waitForVisibility(selectZone).click();
+		
 	}
 
 	public void branchSelection() throws InterruptedException {
 		waitUtill.waitForVisibility(branchDropdown).click();
 		// Thread.sleep(2000);
 		waitUtill.waitForVisibility(selectBranch).click();
+		
 	}
 
 	public void issuedToSelection() throws InterruptedException {
 		waitUtill.waitForVisibility(issuedToDropdown).click();
 		// Thread.sleep(2000);
 		waitUtill.waitForVisibility(selectIssuedTo).click();
+		
+	}
+	
+	public String getAvailableApplicationFrom() {
+		//waitUtill.waitForAttributeNotEmpty(avilableApplicationFrom, "value");
+		return avilableApplicationFrom.getAttribute("value").trim();
+		
 	}
 
 	public void enterApplicationNumberFrom(String applicationNumber) {
 		waitUtill.waitForVisibility(applicationNumberfromField).clear();
 		applicationNumberfromField.sendKeys(applicationNumber);
+		
 	}
 
 	public void enterRange(String range) {
 		waitUtill.waitForVisibility(rangeField).clear();
 		rangeField.sendKeys(range);
+		
 	}
 	
 	public String getDateFieldValue() {
-	    waitUtill.waitForAttributeNotEmpty(dateField, "value");
+	   // waitUtill.waitForAttributeNotEmpty(dateField, "value");
 	    return dateField.getAttribute("value").trim();
+	    
 	}
 
 	public String getMobileNumber() {
-		waitUtill.waitForAttributeNotEmpty(mobileNumberField, "value");
+		//waitUtill.waitForAttributeNotEmpty(mobileNumberField, "value");
 		return mobileNumberField.getAttribute("value").trim();
+		
 	}
 
 	public void clickInsertButton() {
 		waitUtill.waitForVisibility(insertButton).click();
+		
 		
 	}
 

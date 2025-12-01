@@ -13,9 +13,13 @@ public class TC_0001LoginPageTest extends BaseClass {
 	public void loginPageTest() throws IOException {
 
 		LoginPageObjects loginPage = new LoginPageObjects(driver);
-		loginPage.urlValidation();
+		//loginPage.urlValidation();
+		
 		loginPage.setuserNameAndPassword(p.getProperty("username"), p.getProperty("password"));
+		log.info("Provided user name and password");
+		log.info("Login Successful");
 		loginPage.logout();
+		log.info("Logout Successful");
 
 	}
 

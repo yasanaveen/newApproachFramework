@@ -45,8 +45,8 @@ public class ValidateRequiredFieldErrorsTest extends BaseClass {
 		soft.assertTrue(source.contains("Range is required"), "Range validation message NOT found!");
 
 		soft.assertAll();
-
 		System.out.println(" All required field error messages validated using page source.");
+		log.info(" All required field error messages validated using page source.");
 	}
 
 }

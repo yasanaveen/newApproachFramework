@@ -3,12 +3,13 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.varsity.application.tests.TC_0001LoginPageTest">
+      <class name="com.varsity.application.tests.TC_0002ApplicationModuleTestClass">
         <methods>
-          <include name="loginPageTest"/>
+          <include name="homePageTest"/>
           <include name="setup"/>
+          <include name="teardown"/>
         </methods>
-      </class> <!-- com.varsity.application.tests.TC_0001LoginPageTest -->
+      </class> <!-- com.varsity.application.tests.TC_0002ApplicationModuleTestClass -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
